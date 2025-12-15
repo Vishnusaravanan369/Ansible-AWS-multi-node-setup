@@ -1,0 +1,8 @@
+---
+- name: Verify SSH connectivity
+  hosts: nodes
+  tasks:
+    - name: Create a test file on nodes
+      file:
+        path: /tmp/testfile
+        state: touch
