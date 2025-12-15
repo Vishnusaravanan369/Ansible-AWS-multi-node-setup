@@ -1,0 +1,9 @@
+[controller]
+# Optional if controller tasks needed
+192.168.1.10  
+
+[nodes]
+192.168.1.11   # Node 1 private IP
+192.168.1.12   # Node 2 private IP
+
+Replace IPs with your EC2 private IPs
