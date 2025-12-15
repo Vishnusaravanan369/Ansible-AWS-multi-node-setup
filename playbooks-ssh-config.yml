@@ -1,0 +1,15 @@
+---
+- name: Configure SSH password login
+  hosts: all
+  become: yes
+  tasks:
+    - name: Enable password authentication in sshd_config
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?PasswordAuthentication'
+        line: 'PasswordAuthentication yes'
+
+    - name: Restart SSH service
+      service:
+        name: ssh
+        state: restarted
