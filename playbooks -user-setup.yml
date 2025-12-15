@@ -1,0 +1,18 @@
+---
+- name: Create user and grant sudo
+  hosts: all
+  become: yes
+  tasks:
+    - name: Create user 'vis'
+      user:
+        name: vis
+        shell: /bin/bash
+        state: present
+
+    - name: Add vis to sudoers with no password
+      lineinfile:
+        path: /etc/sudoers
+        state: present
+        regexp: '^vis'
+        line: 'vis ALL=(ALL) NOPASSWD:ALL'
+
